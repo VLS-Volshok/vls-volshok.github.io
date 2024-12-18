@@ -129,6 +129,3 @@ Which means:
 -   Attacking stronger targets yields more experience.
     
 -   Damage proportional to the target's health determines experience gained
-
-```xml
-```
