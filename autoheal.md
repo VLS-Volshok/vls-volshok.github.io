@@ -84,7 +84,7 @@ The majority of units have `Idle AutoHeal=5`, below are units that have a differ
 ## Auto Heal Calculation
 Self-repairing is calculated through the following formula:
 
-```lua
+```cpp
     if (health < maxHealth) { 
 	    health += (unitDef->idleAutoHeal * (restTime > unitDef->idleTime)); 
 	    health += unitDef->autoHeal; 
@@ -98,7 +98,7 @@ The code checks if a unit's **current health** (`health`) is less than its **max
  - **Delayed Repair**: Conditional healing that applies only if the unit has been idle for a specified time.
 
 Finally, the health is capped at the unit's maximum health.
-```lua
+```cpp
 	autoHeal     = udTable.GetFloat("autoHeal",      0.0f) * (UNIT_SLOWUPDATE_RATE * INV_GAME_SPEED);
 	idleAutoHeal = udTable.GetFloat("idleAutoHeal", 10.0f) * (UNIT_SLOWUPDATE_RATE * INV_GAME_SPEED);
 	idleTime     = udTable.GetInt("idleTime", 600);
