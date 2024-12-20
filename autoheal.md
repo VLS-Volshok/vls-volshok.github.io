@@ -10,7 +10,7 @@ There are two kinds of self repairing mechanics for units in BAR.
 ## Units with Unique autoHeal Values
 The majority of units have `autoHeal=0`, meaning they do not heal while being attacked. Below are units that have have an `autoheal > 0`.
 | Category | Name|  autoHeal  |
-|--|:-:|:-:|
+|:--:|:-:|:-:|
 |Building|Armada Fortification Wall|12|
 |Building|Armada Dragon's Teeth| 4 |
 | Building|Armada Shark's Teeth | 4 |
@@ -84,12 +84,13 @@ The majority of units have `Idle AutoHeal=5`, below are units that have a differ
 ## Auto Heal Calculation
 Self-repairing is calculated through the following formula:
 
+```lua
     if (health < maxHealth) { 
 	    health += (unitDef->idleAutoHeal * (restTime > unitDef->idleTime)); 
 	    health += unitDef->autoHeal; 
 	    health = std::min(health, maxHealth); 
     } 
-
+```
 ### Code Overview
 
 The code checks if a unit's **current health** (`health`) is less than its **maximum health** (`maxHealth`). If true, the unit's health is healed incrementally using two different healing factors:
@@ -97,11 +98,11 @@ The code checks if a unit's **current health** (`health`) is less than its **max
  - **Delayed Repair**: Conditional healing that applies only if the unit has been idle for a specified time.
 
 Finally, the health is capped at the unit's maximum health.
-
+```lua
 	autoHeal     = udTable.GetFloat("autoHeal",      0.0f) * (UNIT_SLOWUPDATE_RATE * INV_GAME_SPEED);
 	idleAutoHeal = udTable.GetFloat("idleAutoHeal", 10.0f) * (UNIT_SLOWUPDATE_RATE * INV_GAME_SPEED);
 	idleTime     = udTable.GetInt("idleTime", 600);
-
+```
 ### Notes
 The engine multiplies the autoheal by `15 * 1/30` as part of `autoHeal     = udTable.GetFloat("autoHeal",      0.0f) * (UNIT_SLOWUPDATE_RATE * INV_GAME_SPEED);`
 
