@@ -15,7 +15,7 @@ Process is
 -   A random value is added to each RGB component (Red, Green, Blue), defined as: `math.random(-variation, variation).`variation` is the delta value.
 - Level of variation is controlled by `colorVariationDelta` (default is 128). It increases over each cycle to maintain uniqueness incase the color palette gets weird.
 -   If all available colors are exhausted it resets to the first color and the variation amplitude increases, making new colors more distinct.
--   
+  
 ### AI Faction Defined Colors
 | Hex Code  | Special Color  |
 |-----------|-------------|
@@ -35,7 +35,7 @@ These are alternate modes where player/team colors are randomized, obscured, or 
 ### Simple Colors
 `simpleteamcolors` is an accessibility option designed for better team color visibility. Each option modifies configuration values in `(Spring.SetConfigInt)` to adjust team colors. Can also use gradiants.
 Players can customize RGB values (and use gradients) for:
--Player color (self).
+- Player color (self).
 - Ally team color.
 - Enemy team color.
   
