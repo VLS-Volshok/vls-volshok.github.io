@@ -60,6 +60,7 @@ There are 16 levels of veterancy, each with unique icons that display on both th
 ## Experience Calculation
 Experience is calculated through the following formula:
 
+```cpp
     if (!isCollision && baseDamage > 0.0f) {
     if ((attacker != nullptr) && !teamHandler.Ally(allyteam, attacker->allyteam)) {
     const float scaledExpMod = 0.1f * experienceMod * (power / attacker->power);
@@ -67,26 +68,27 @@ Experience is calculated through the following formula:
     attacker->AddExperience(scaledExpMod * scaledDamage);
     }
     }
-  
+```
 ### 1. Outer Condition Check:
-  
+  ```cpp
     if (!isCollision && baseDamage > 0.0f)  
-
+```
  - `isCollision`: A flag to indicate if the event is a collision (ensures the logic only executes for non-collision events (e.g., damage caused by attacks or abilities).  
 - `baseDamage > 0.0f`: Ensures that there is actual damage to process (ignores zero or negative damage values).
 
 ### 2. Target and Attacker Relationship Check:
-
+```cpp
     if ((attacker != nullptr) && !teamHandler.Ally(allyteam, attacker->allyteam))
+```
 - `= nullptr`: Ensures that the attacker exists
 - `!teamHandler.Ally(allyteam, attacker->allyteam)`:  Checks if the attacker and target are not allies (friendly fire is ignored).
    
 ### 3. Scaled Experience Calculation:
 
 The experience gained by the attacker is scaled based on the following formula with two parts, `scaledExpMod` and `scaledDamage`:
-
+```cpp
     const float scaledExpMod = 0.1f * experienceMod * (power / attacker->power);
-
+```
 ####  Part 1: Calculate `scaledExpMod`:
 
 -   `0.1f`: Constant balance multiplier for XP gain.
@@ -98,9 +100,9 @@ The experience gained by the attacker is scaled based on the following formula w
     
 
 #### Part 2: Calculate `scaledDamage`:
-
+```cpp
     const float scaledDamage = std::max(0.0f, (baseDamage + std::min(0.0f, health))) / maxHealth;
-
+```
 -   `baseDamage`: The damage value inflicted in this instance.
 -   `health`: The target's current health after the attack
 -   `std::min(0.0f, health)` ensures that only negative health values are considered (target health might go below zero).  
@@ -108,13 +110,13 @@ The experience gained by the attacker is scaled based on the following formula w
 -   Division by `maxHealth`: Normalizes the damage relative to the target's maximum health, so experience scales proportionally to the damage dealt.  
 
 ### 4. Experience Gain for the Attacker:
-
+```cpp
     attacker->AddExperience(scaledExpMod * scaledDamage);
-
+```
 -   `scaledExpMod`* `scaledDamage`: Combines the experience modifier and the normalized damage to determine the final experience gain.
 -   `attacker->AddExperience()`: Adds the calculated experience to the attacker's experience pool.  
       
-    
+  
 
 ### Summary:
 
