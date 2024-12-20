@@ -6,8 +6,17 @@ In multiplayer games, colors are assigned by descending Openskill value. A playe
 ## Color Palettes
 -   There are different predefined palettes (`ffaColors`, `survivalColors`, `teamColors`) for all game modes.
  -   Special colors are assigned for AI factions like _Scavenger_ and _Raptor_, as well as neutral factions
- 
-### Special Colors
+
+### Automatic Color Generation
+Teams in BAR will have a main color, or a "theme" color. BAR generates slight variations to a team's main color to make them visually distinct and avoid repetitive colors while not having drastic changes that would make colors unrecognizable. This variation is achieved by randomly modifying the RGB values of each "main" color, then converting it back to Hex.
+
+Process is
+-   `hex2RGB(hex)` converts a color's hex code into an RGB triplet (Red, Green, Blue) that ranges from 0 to 255.
+-   A random value is added to each RGB component (Red, Green, Blue), defined as: `math.random(-variation, variation).`variation` is the delta value.
+- Level of variation is controlled by `colorVariationDelta` (default is 128). It increases over each cycle to maintain uniqueness incase the color palette gets weird.
+-   If all available colors are exhausted it resets to the first color and the variation amplitude increases, making new colors more distinct.
+-   
+### AI Faction Defined Colors
 | Hex Code  | Special Color  |
 |-----------|-------------|
 | #004DFF   | Armada Blue |
@@ -23,16 +32,13 @@ These are alternate modes where player/team colors are randomized, obscured, or 
 - **All Red** `allred`: Yeah everyone is red. 
 - **Anonymous** `local`:  Each player is given local random colors for all other players so there isn't uniform coloring. For example, Player 1 will see Player 2 as "Red", but Player 3 will see Player 2 as "Blue". 
 
-### Automatic Color Generation
-Teams in BAR will have a main color, or a "theme" color. BAR generates slight variations to a team's main color to make them visually distinct and avoid repetitive colors while not having drastic changes that would make colors unrecognizable. This variation is achieved by randomly modifying the RGB values of each "main" color, then converting it back to Hex.
-
-Process is
--   `hex2RGB(hex)` converts a color's hex code into an RGB triplet (Red, Green, Blue) that ranges from 0 to 255.
--   A random value is added to each RGB component (Red, Green, Blue), defined as: `math.random(-variation, variation).`variation` is the delta value.
-- Level of variation is controlled by `colorVariationDelta` (default is 128). It increases over each cycle to maintain uniqueness incase the color palette gets weird.
--   If all available colors are exhausted it resets to the first color and the variation amplitude increases, making new colors more distinct.
+### Simple Colors
+`simpleteamcolors` is an accessibility option designed for better team color visibility. Each option modifies configuration values in `(Spring.SetConfigInt)` to adjust team colors. Can also use gradiants.
+Players can customize RGB values (and use gradients) for:
+-Player color (self).
+- Ally team color.
+- Enemy team color.
   
-
 ## Color Assignments
 
 ### Free-For-All (FFA) Colors
@@ -193,9 +199,50 @@ Teams are assigned a main color palette based on the number of teams (up to eigh
 
 
 
-## Code
-Colors are handled by a gadget that can be found here: https://github.com/beyond-all-reason/Beyond-All-Reason/blob/master/luarules/gadgets/game_autocolors.lua 
+## Code Notes
+### Team Colors
+Team Colors are handled by a gadget that can be found here: https://github.com/beyond-all-reason/Beyond-All-Reason/blob/master/luarules/gadgets/game_autocolors.lua 
 
 -   `hex2RGB`: Converts a hexadecimal color string to an RGB table.
 -   `shuffleTable`: Randomizes the order of colors within a table.
 -   `shuffleAllColors`: Randomizes all color palettes when anonymous mode is active.
+-   `setUpTeamColor(teamID, allyTeamID, isAI)`: Assigns a color to each team based on: Game mode & AI Faction, plusaAdds RGB variations and handles edge cases
+-  `setUpLocalTeamColor(teamID, allyTeamID, isAI)`: a local `setUpTeamColor` for anonymous local team colors
+-  `setUpAllLocalTeamColors()`: Initializes team colors for all teams on the local client, resets counters and variations for new color assignment (I think?).
+-  `discoShuffle(myTeamID)`: Brings back the 70's and randomizes all team colors except the users.
+-  `updateTeamColors()`: Applies the assigned team colors to the game. Handles default, gradient, all-red, etc and updates RGB values for each team based on the mode.
+-  `gadget:PlayerChanged(playerID)`: Updates team colors if the player's spectator state changes.
+
+### Simple Team Colors
+ SimpleTeamColors are here: https://github.com/beyond-all-reason/Beyond-All-Reason/blob/8aeb54ed9290f460c3cf4f91935a058e72a2c462/luaui/Widgets/gui_options.lua#L4622C10-L4622C27
+ ```lua
+{ id = "simpleteamcolors", ... type = "bool", ... }
+```
+- Toggle the "Simple Team Colors" feature on or off, If true, sets `SimpleTeamColors` to 1, Updates team colors immediately by setting `UpdateTeamColors` to 1.
+```lua
+{ id = "simpleteamcolors_reset", ... type = "bool", ... }
+```
+-  Reset team colors to:
+ -  Player: R=0, G=77, B=255 (Blue).
+ -  Ally: R=0, G=255, B=0 (Green).
+ -  Enemy: R=255, G=16, B=5 (Red).
+ ```lua
+{ id = "simpleteamcolors_use_gradient", ... type = "bool", ... }
+```
+Enable gradiant.
+ ```lua
+{ id = "simpleteamcolors_player_r", ... type = "slider", min = 0, max = 255 }
+{ id = "simpleteamcolors_player_g", ... }
+{ id = "simpleteamcolors_player_b", ... }
+ ```
+ ```lua
+{ id = "simpleteamcolors_ally_r", ... type = "slider" }
+{ id = "simpleteamcolors_ally_g", ... }
+{ id = "simpleteamcolors_ally_b", ... }
+ ```
+ ```lua
+{ id = "simpleteamcolors_enemy_r", ... type = "slider" }
+{ id = "simpleteamcolors_enemy_g", ... }
+{ id = "simpleteamcolors_enemy_b", ... }
+ ```
+Separate adjustments for each group.
