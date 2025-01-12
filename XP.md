@@ -22,7 +22,8 @@ The bonus health provided by experience indirectly improves repair efficiency. S
 
 ### Damage Output and Reload Speed
 
-Most units exhibit increased damage per second (DPS) with faster reload speeds resulting from experience. However, weapons are capped at 10 shots per second. As such high fire rate weapons (like the Beamer anti-swarm laser) do not benefit from further reload speed reductions beyond this threshold. Additionally, some units do not gain rate of fire increases due to their unit script, like Whistlers & Lashers (unintended).
+Most units exhibit increased damage per second (DPS) with faster reload speeds resulting from experience. However, weapons are capped at 10 shots per second. As such high fire rate weapons (like the Beamer anti-swarm laser) do not benefit from further reload speed reductions beyond this threshold. Additionally, some units do not gain rate of fire increases due to their unit script, like Whistlers & Lashers (unintended). Burst fire units also gain reduced (or no) bonus reload speed from veterancy: bursts cannot go any lower than 0.033 per shot since value lower automatically rounds to 0. 
+As of now miniguns dps are misrepresented by veterancy bonus too, they do not gain any tangible bonuses apart from accuracy
 
 ### Unit-Specific Modifiers
 
