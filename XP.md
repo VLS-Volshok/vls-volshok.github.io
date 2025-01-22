@@ -5,8 +5,6 @@ Units accrue experience by inflicting damage on enemies. Unit experience provide
 
 1.  Health Bonus: Increases the unit's maximum health pool. (Max: +250%)
 2.  Reload Speed Bonus: Reduces the time between consecutive attacks. (Max: -55%)
-    
-## Experience Calculation
 
 The experience gained by a unit per attack is determined by the relative power between the target and attacker, as well as the proportion of the target's health lost during the attack.
 
