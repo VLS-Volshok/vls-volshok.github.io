@@ -12,7 +12,7 @@ The experience gained by a unit per attack is determined by the relative power b
 -   Damage: Damage proportional to the target's health determines experience gained.
 
 ## Benefits
-While all units gain bonus health and reload speed, some effects are affect different unit uniquely.
+While all units gain bonus health and reload speed, some effects are unique to specific units.
 
 ### Repair Efficiency
 
