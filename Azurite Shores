@@ -64,5 +64,85 @@
       "x": 8373,
       "y": 7318
     }
-  }
+  },
+ "team": [
+    {
+      "playersPerTeam": 8,
+      "sides": [
+        {
+          "starts": [
+            {
+              "role": "front",
+              "spawnPoint": "P1"
+            },
+            {
+              "role": "front",
+              "spawnPoint": "P2"
+            },
+            {
+              "role": "air",
+              "spawnPoint": "P3"
+            },
+            {
+              "role": "front",
+              "spawnPoint": "P4"
+            },
+            {
+              "role": "front",
+              "spawnPoint": "P5"
+            },
+            {
+              "role": "tech",
+              "spawnPoint": "P6"
+            },
+            {
+              "role": "front",
+              "spawnPoint": "P7"
+            },
+            {
+              "role": "front",
+              "spawnPoint": "P8"
+            }
+          ]
+        },
+        {
+          "starts": [
+            {
+              "role": "front",
+              "spawnPoint": "P9"
+            },
+            {
+              "role": "front",
+              "spawnPoint": "P10"
+            },
+            {
+              "role": "front",
+              "spawnPoint": "P11"
+            },
+            {
+              "role": "air",
+              "spawnPoint": "P12"
+            },
+            {
+              "role": "front",
+              "spawnPoint": "P13"
+            },
+            {
+              "role": "tech",
+              "spawnPoint": "P14"
+            },
+            {
+              "role": "front",
+              "spawnPoint": "P15"
+            },
+            {
+              "role": "front",
+              "spawnPoint": "P16"
+            }
+          ]
+        }
+      ],
+      "teamCount": 2
+    }
+  ]
 }
