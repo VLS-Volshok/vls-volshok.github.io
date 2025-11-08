@@ -72,7 +72,7 @@
         {
           "starts": [
             {
-              "role": "front",
+              "role": "air",
               "spawnPoint": "P1"
             },
             {
@@ -136,7 +136,7 @@
               "spawnPoint": "P15"
             },
             {
-              "role": "front",
+              "role": "air",
               "spawnPoint": "P16"
             }
           ]
