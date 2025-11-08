@@ -76,7 +76,7 @@
               "spawnPoint": "P1"
             },
             {
-              "role": "flex",
+              "role": "front/tech",
               "spawnPoint": "P2"
             },
             {
@@ -124,7 +124,7 @@
               "spawnPoint": "P12"
             },
             {
-              "role": "flex",
+              "role": "front/tech",
               "spawnPoint": "P13"
             },
             {
