@@ -92,7 +92,7 @@
               "spawnPoint": "P5"
             },
             {
-              "role": "front",
+              "role": "air",
               "spawnPoint": "P6"
             },
             {
@@ -128,7 +128,7 @@
               "spawnPoint": "P13"
             },
             {
-              "role": "front",
+              "role": "air",
               "spawnPoint": "P14"
             },
             {
