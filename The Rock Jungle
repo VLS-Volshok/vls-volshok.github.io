@@ -124,11 +124,11 @@
               "spawnPoint": "P12"
             },
             {
-              "role": "front",
+              "role": "air",
               "spawnPoint": "P13"
             },
             {
-              "role": "air",
+              "role": "front",
               "spawnPoint": "P14"
             },
             {
