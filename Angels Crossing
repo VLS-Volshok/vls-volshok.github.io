@@ -64,8 +64,8 @@
       "x": 2392,
       "y": 6562
     }
-  }
-  "team": [
+  },
+   "team": [
     {
       "playersPerTeam": 8,
       "sides": [
@@ -136,7 +136,7 @@
               "spawnPoint": "P15"
             },
             {
-              "role": "front",
+              "role": "sea",
               "spawnPoint": "P16"
             }
           ]
