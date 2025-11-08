@@ -84,7 +84,7 @@
               "spawnPoint": "P3"
             },
             {
-              "role": "tech",
+              "role": "front",
               "spawnPoint": "P4"
             },
             {
@@ -92,7 +92,7 @@
               "spawnPoint": "P5"
             },
             {
-              "role": "tech",
+              "role": "front",
               "spawnPoint": "P6"
             },
             {
@@ -116,7 +116,7 @@
               "spawnPoint": "P10"
             },
             {
-              "role": "tech",
+              "role": "front",
               "spawnPoint": "P11"
             },
             {
