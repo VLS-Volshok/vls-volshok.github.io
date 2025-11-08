@@ -1,0 +1,148 @@
+{
+  "positions": {
+    "P1": {
+      "x": 5875,
+      "y": 8845
+    },
+    "P2": {
+      "x": 6121,
+      "y": 7537
+    },
+    "P3": {
+      "x": 5539,
+      "y": 6916
+    },
+    "P4": {
+      "x": 6708,
+      "y": 6932
+    },
+    "P5": {
+      "x": 7228,
+      "y": 6193
+    },
+    "P6": {
+      "x": 6858,
+      "y": 5455
+    },
+    "P7": {
+      "x": 8801,
+      "y": 5537
+    },
+    "P8": {
+      "x": 7710,
+      "y": 8362
+    },
+    "P9": {
+      "x": 3330,
+      "y": 359
+    },
+    "P10": {
+      "x": 3116,
+      "y": 1673
+    },
+    "P11": {
+      "x": 2498,
+      "y": 2270
+    },
+    "P12": {
+      "x": 3668,
+      "y": 2289
+    },
+    "P13": {
+      "x": 1997,
+      "y": 3060
+    },
+    "P14": {
+      "x": 2350,
+      "y": 3763
+    },
+    "P15": {
+      "x": 1439,
+      "y": 865
+    },
+    "P16": {
+      "x": 389,
+      "y": 3691
+    }
+  },
+ "team": [
+    {
+      "playersPerTeam": 8,
+      "sides": [
+        {
+          "starts": [
+            {
+              "role": "sea",
+              "spawnPoint": "P1"
+            },
+            {
+              "role": "front",
+              "spawnPoint": "P2"
+            },
+            {
+              "role": "front",
+              "spawnPoint": "P3"
+            },
+            {
+              "role": "tech",
+              "spawnPoint": "P4"
+            },
+            {
+              "role": "front",
+              "spawnPoint": "P5"
+            },
+            {
+              "role": "tech",
+              "spawnPoint": "P6"
+            },
+            {
+              "role": "sea",
+              "spawnPoint": "P7"
+            },
+            {
+              "role": "air",
+              "spawnPoint": "P8"
+            }
+          ]
+        },
+        {
+          "starts": [
+            {
+              "role": "sea",
+              "spawnPoint": "P9"
+            },
+            {
+              "role": "front",
+              "spawnPoint": "P10"
+            },
+            {
+              "role": "tech",
+              "spawnPoint": "P11"
+            },
+            {
+              "role": "front",
+              "spawnPoint": "P12"
+            },
+            {
+              "role": "front",
+              "spawnPoint": "P13"
+            },
+            {
+              "role": "front",
+              "spawnPoint": "P14"
+            },
+            {
+              "role": "air",
+              "spawnPoint": "P15"
+            },
+            {
+              "role": "sea",
+              "spawnPoint": "P16"
+            }
+          ]
+        }
+      ],
+      "teamCount": 2
+    }
+  ]
+}
